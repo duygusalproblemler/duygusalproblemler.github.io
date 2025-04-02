@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hediye Kutusu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        .gift-box {
+            width: 120px;
+            height: 120px;
+            background-color: #d32f2f;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+
+        .gift-box::before {
+            content: "";
+            width: 100%;
+            height: 30px;
+            background-color: gold;
+            position: absolute;
+            top: -15px;
+            left: 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .gift-box::after {
+            content: "🎁";
+            font-size: 400px;
+            position: absolute;
+        }
+
+        .gift-box.open {
+            background-color: white;
+        }
+
+        .gift-box.open::before {
+            display: none;
+        }
+
+        .gift-box.open::after {
+            content: "";
+        }
+
+        .gift-content {
+            display: none;
+            font-size: 17px;
+            color: rgb(254, 9, 42);
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function openGift() {
+            var box = document.getElementById("giftBox");
+            var content = document.getElementById("giftContent");
+            box.classList.add("open");
+            content.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div id="giftBox" class="gift-box" onclick="openGift()">
+        <div id="giftContent" class="gift-content"> <p><strong>SENİ ÇOK SEVİYORUM BALIMM</strong></p></div>
+    </div>
+</body>
+</html>
